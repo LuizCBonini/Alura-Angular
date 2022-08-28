@@ -1,3 +1,4 @@
+import { PhotoService } from './photos/photo/photo.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,18 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  photos = [
-    {
-      url:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sultan_the_Barbary_Lion.jpg/440px-Sultan_the_Barbary_Lion.jpg",
-      description:"A simple album of the squares of the barbary lion."
-    },
-    {
-      url:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lioness_Etosha_NP.jpg/500px-Lioness_Etosha_NP.jpg",
-      description:"Leoa"
-    },
-    {
-      url:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lioness_Etosha_NP.jpg/500px-Lioness_Etosha_NP.jpg",
-      description:"Leoa"
-    },
-  ]
+  photos: object[] = [];
+
+  constructor (photoServiceContainer: PhotoService) {
+
+    photoServiceContainer
+      .listFromUser('flavio')
+      .subscribe(photos => this.photos = photos)
+    
+  }
+
 }
