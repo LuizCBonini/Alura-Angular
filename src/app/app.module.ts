@@ -1,3 +1,5 @@
+import { ErrorsModule } from './errors/errors.module';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
 // Angular imports:
 import { AppRoutingModule } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +16,8 @@ import { PhotosModule } from './photos/photos.module';
   imports: [
     BrowserModule,
     PhotosModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ErrorsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
