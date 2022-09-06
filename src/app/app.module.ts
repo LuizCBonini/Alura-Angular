@@ -1,7 +1,7 @@
 import { ErrorsModule } from './errors/errors.module';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 // Angular imports:
-import { AppRoutingModule } from './app.routing';
+import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
