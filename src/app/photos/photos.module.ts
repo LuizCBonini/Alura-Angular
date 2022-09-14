@@ -8,7 +8,7 @@ import { PhotoFormModule } from './photo-form/photo-form.module';
     imports: [
         PhotoModule,
         PhotoFormModule,
-        PhotoListModule,
+        PhotoListModule
 ]
 })
 
