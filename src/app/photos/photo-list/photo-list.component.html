@@ -1,4 +1,6 @@
-<ap-search></ap-search>
+<h1 style="background: rgb(120, 120, 255)" apDarkenOnHover brightness="20%">Photos</h1>
+
+<ap-search (onTyping)="filter = $event" [value]="filter"></ap-search>
 
 <ap-photos [photos]="photos | filterByDescription: filter"></ap-photos>
 
