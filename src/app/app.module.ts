@@ -1,5 +1,6 @@
 import { ErrorsModule } from './errors/errors.module';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+
 // Angular imports:
 import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,6 +9,8 @@ import { AppComponent } from './app.component';
 
 // My imports:
 import { PhotosModule } from './photos/photos.module';
+import { HomeModule } from './home/home.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { PhotosModule } from './photos/photos.module';
     BrowserModule,
     PhotosModule,
     AppRoutingModule,
-    ErrorsModule
+    ErrorsModule,
+    HomeModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
