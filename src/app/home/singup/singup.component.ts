@@ -1,29 +1,27 @@
-import { PlatformDetectorService } from 'src/app/core/platform-detector/platform-detector.service';
-import { Router } from '@angular/router';
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-
-import { lowerCaseValidator } from "../../shared/validators/lower-case.validator";
-import { SignupService } from './signup.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { lowerCaseValidator } from '../../shared/validators/lower-case.validator';
 import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
-import { NewUser } from './newUser';
+import { NewUser } from './new-user';
+import { SignUpService } from './signup.service';
+import { Router } from '@angular/router';
+import { PlatformDetectorService } from '../../core/plataform-detector/platform-detector.service';
 
 @Component({
     templateUrl: './signup.component.html',
-    providers: [UserNotTakenValidatorService]
+    providers: [ UserNotTakenValidatorService ]
 })
-export class SignupComponent implements OnInit{
-
+export class SignUpComponent implements OnInit {
+    
     signupForm: FormGroup;
     @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
-
+    
     constructor(
         private formBuilder: FormBuilder,
         private userNotTakenValidatorService: UserNotTakenValidatorService,
-        private signupService: SignupService,
+        private signUpService: SignUpService,
         private router: Router,
-        private platformDetectorService: PlatformDetectorService
-    ) {}
+        private platformDetectorService: PlatformDetectorService) {}
 
     ngOnInit(): void {
         this.signupForm = this.formBuilder.group({
@@ -55,22 +53,20 @@ export class SignupComponent implements OnInit{
                     Validators.minLength(8),
                     Validators.maxLength(14)
                 ]
-            ],
-
+            ]
         });
 
-        
-        this.platformDetectorService.isPlatformBrowser() &&
-        this.emailInput.nativeElement.focus();
-    }
-    
+        this.platformDetectorService.isPlatformBrowser() && 
+            this.emailInput.nativeElement.focus();    
+    } 
 
     signup() {
         const newUser = this.signupForm.getRawValue() as NewUser;
-        this.signupService
+        this.signUpService
             .signup(newUser)
-            .subscribe(() => this.router.navigate(['']),
-            err => console.log(err)
+            .subscribe(
+                () => this.router.navigate(['']),
+                err => console.log(err)
             );
     }
 }

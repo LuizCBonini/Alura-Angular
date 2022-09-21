@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 const KEY = 'authToken';
 
 @Injectable({ providedIn: 'root'})
 export class TokenService {
-    
-    hasToken(){
+
+    hasToken() {
         return !!this.getToken();
     }
 

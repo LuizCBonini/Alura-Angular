@@ -1,10 +1,14 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
+
 import { Photo } from '../photo/photo';
 
-@Pipe({name:'filterByDescription'})
+@Pipe({ name: 'filterByDescription'})
 export class FilterByDescription implements PipeTransform {
+
     transform(photos: Photo[], descriptionQuery: string) {
-        descriptionQuery = descriptionQuery.trim().toLowerCase();
+        descriptionQuery = descriptionQuery
+            .trim()
+            .toLowerCase();
 
         if(descriptionQuery) {
             return photos.filter(photo => 
@@ -12,7 +16,7 @@ export class FilterByDescription implements PipeTransform {
             );
         } else {
             return photos;
-
         }
     }
+
 }

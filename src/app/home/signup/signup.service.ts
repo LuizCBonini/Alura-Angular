@@ -4,7 +4,7 @@ import { NewUser } from './newUser';
 
 const API_URL = "http://localhost:3000"
 
-@Injectable({ providedIn:'root'})
+@Injectable()
 
 export class SignupService {
 
