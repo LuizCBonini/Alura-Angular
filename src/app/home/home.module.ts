@@ -4,15 +4,15 @@ import { ReactiveFormsModule, FormsModule }  from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { VMessageModule } from '../shared/components/vmessage/vmessage.module';
 import { RouterModule } from '@angular/router';
-import { SignUpComponent } from './singup/singup.component';
+import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing.module';
-import { SignUpService } from './singup/signup.service';
+import { SignupService } from './signup/signup.service';
 
 @NgModule({
     declarations: [ 
         SignInComponent,
-        SignUpComponent,
+        SignupComponent,
         HomeComponent
     ],
     imports: [ 
@@ -24,7 +24,7 @@ import { SignUpService } from './singup/signup.service';
         HomeRoutingModule
     ],
     providers: [
-        SignUpService
+        SignupService
     ]
 })
 export class HomeModule { }
