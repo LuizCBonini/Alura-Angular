@@ -9,7 +9,7 @@ import { Alert, AlertType } from "./alert";
 
 export class AlertService {
 
-    alertSubject: Subject<Alert> = new Subject<Alert>;
+    alertSubject: Subject<Alert> = new Subject<Alert>();
     keepAfterRouteChange = false;
 
     constructor(router: Router) {
